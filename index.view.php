@@ -16,16 +16,14 @@
 
 <body>
     <header>
-        <h1>
-            <?= $greeting; ?>
-        </h1>
-
-        <h2>Task For The Week</h2>
-
         <ul>
-            <?php foreach ($task as $heading => $value) : ?>
+            <?php foreach ($tasks as $task) : ?>
                 <li>
-                    <strong><?= ucwords($heading); ?>: </strong> <?= $value; ?>
+                    <?php if ($task->completed) : ?>
+                        <strike><?= $task->description; ?></strike>
+                    <?php else : ?>
+                        <?= $task->description; ?>
+                    <?php endif; ?>
                 </li>
             <?php endforeach; ?>
         </ul>
